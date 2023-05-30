@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Review Page</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <style>
+    body {
+      background-color: white;
+    }
+
+    .table-users {
+      width: 100%;
+      padding: 20px;
+      margin-top: 50px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .table-users .header {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .table-users table {
+      width: 100%;
+    }
+
+    .table-users table thead th {
+      background-color: #gray;
+      color: #333;
+      font-weight: bold;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .table-users table tbody td {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="table-users">
+    <div class="header">{{ channel }}</div>
+    <table cellspacing="0">
+      <thead>
+        <tr>
+          <th>Video Link</th>
+          <th>Thumbnail</th>
+          <th>Title</th>
+          <th>Views</th>
+          <th>Posting Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for review in report_list %}
+        <tr>
+          <td>{{ review[1] }}</td>
+          <td>{{ review[2] }}</td>
+          <td>{{ review[3] }}</td>
+          <td>{{ review[4] }}</td>
+          <td>{{ review[5] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+</html>
